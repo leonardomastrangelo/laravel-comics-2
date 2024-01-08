@@ -1,0 +1,318 @@
+@use './partials/variables' as *;
+
+$fa-font-path: "../webfonts" !default;
+
+@import "~@fortawesome/fontawesome-free/scss/fontawesome";
+@import "~@fortawesome/fontawesome-free/scss/regular";
+@import "~@fortawesome/fontawesome-free/scss/solid";
+@import "~@fortawesome/fontawesome-free/scss/brands";
+
+@import '~bootstrap/scss/bootstrap';
+
+#top-header {
+    background-color: $brand_primary;
+    padding: 5px 0;
+    span {
+        color: $text_color_primary;
+        text-transform: uppercase;
+        font-size: 0.8em;
+        font-weight: 400;
+        padding-left: 10%;
+    }
+}
+
+nav {
+    ul {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px 70px;
+        margin: 0;
+        li {
+            position: relative;
+        }
+        a {
+            color: $text_color_secondary;
+            font-size: 1.1em;
+            font-weight: 500;
+            text-decoration: none;
+            text-transform: uppercase;
+            padding: 0 10px;
+        }
+    }
+    input {
+        border-top: 0 !important;
+        border-left: 0 !important;
+        border-right: 0 !important;
+        border-radius: 0 !important;
+        border-bottom: 3px solid $brand_primary !important;
+    }
+    .active {
+        color: $brand_primary;
+            font-weight: 600;
+    }
+    .active-bar {
+        width: 65%;
+        height: 8px;
+        background-color: $brand_primary;
+        position: absolute;
+        top: 275%;
+        left: 18%;
+    }
+}
+
+
+#jumbo {
+    background-image: url(../img/jumbotron.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+    height: 50vh;
+}
+
+#current-series {
+    background-color: $brand_secondary;
+    padding-bottom: 30px;
+    #tag-series {
+        display: inline-block;
+        color: $text_color_primary;
+        font-size: 1.9em;
+        font-weight: 600;
+        background-color: $brand_primary;
+        text-transform: uppercase;
+        padding: 10px 30px;
+        transform: translateY(-50%);
+    }
+    h2 {
+        font-size: 1em;
+        color: $text_color_primary;
+        text-transform: uppercase;
+        margin: 0;
+        padding-top: 20px;
+    }
+    img {
+        display: block;
+        width: 100%;
+    }
+    .overflow-hidden {
+        height: 200px;
+        width: 100%;
+    }
+    button {
+        text-transform: uppercase;
+        color: $text_color_primary;
+        background-color: $brand_primary;
+        padding: 10px 70px;
+        border: 0;
+        font-size: 0.85em;
+        font-weight: 600;
+    }
+    p {
+        color: rgb(99, 92, 92);
+        margin: 0;
+    }
+    div span {
+        color: rgba(245, 245, 220, 0.685);
+    }
+}
+
+#options {
+    background-color: $brand_primary;
+    .opt {
+        width: 50px;
+        padding: 50px 0;
+    }
+    h3 {
+        color: $text_color_primary;
+        font-size: 1em;
+        text-transform: uppercase;
+        margin: 0;
+        padding: 0 20px;
+    }
+}
+
+#jumbo_2 {
+    background-image: url(../img/footer-bg.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 60px 0 20px 0;
+    overflow: hidden;
+    h3 {
+        color: $text_color_primary;
+        text-transform: uppercase;
+    }
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        a {
+            text-decoration: none;
+            color: rgb(140, 140, 140);
+            text-transform: capitalize;
+            font-size: 0.8em;
+        }
+    }
+    #rights {
+        font-size: 0.7em;
+        color: rgb(140, 140, 140);
+        padding: 20px 0;
+        a {
+            text-decoration: none;
+            color: $brand_primary;
+        }
+    }
+    .col-5 img {
+        transform: scale(1.6);
+    }
+}
+
+footer {
+    background-color: $brand_tertiary;
+    padding: 30px 0;
+    button {
+        border: 2px solid $brand_primary;
+        background-color: transparent;
+        color: $text_color_primary;
+        padding: 15px;
+        text-transform: uppercase;
+        font-weight: 600;
+    }
+    ul {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+        margin: 0;
+        a {
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 1.3em;
+            font-weight: 700;
+            padding-left: 20px;
+
+        }
+    }
+}
+
+.details {
+    .img-container {
+        background-color: $brand_primary;
+        height: 100px;
+        width: 100%;
+        span {
+            color: $text_color_primary;
+            background-color: #00A9DA;
+            position: absolute;
+            left: 0;
+            top: 0;
+            padding: 3px;
+            font-weight: 300;
+            text-transform: uppercase;
+            font-size: 0.85em;
+        }
+    }
+    .img-card {
+        position: absolute;
+        left: 0;
+        bottom: -80px;
+        div {
+            color: $text_color_primary;
+            background-color: #00A9DA;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            padding: 2px;
+            font-weight: 300;
+            text-transform: uppercase;
+            text-align: center;
+            font-size: 0.85em;
+        }
+    }
+    #comic {
+        width: 220px;
+    }
+    #comic_info {
+        padding: 70px 0;
+        h2 {
+            font-size: 2.2em;
+            text-transform: uppercase;
+            font-weight: 600;
+            color: $text_color_four;
+        }
+        .info_badge {
+            background-color: #55BA58;
+            border-bottom: 1px solid black;
+            margin: 20px 0;
+            .col-4 {
+                border-left: 1px solid black;
+            }
+        }
+        .low-color {
+            color: #BAF980;
+        }
+        p {
+            color: #555555;
+            line-height: 2em;
+            font-size: 0.95em;
+        }
+        h4 {
+            color: #555555;
+            text-transform: uppercase;
+            text-align: end;
+            position: absolute;
+            bottom: 100%;
+            right: 0;
+            font-size: 1.1em;
+        }
+    }
+    #specifics {
+        font-size: 0.9em;
+        padding-top: 50px;
+        background-color: #F6F6F6;
+
+        h4 {
+            padding-bottom: 30px;
+        }
+        h5{
+        font-size: 1em;
+
+        }
+        a {
+            text-decoration: none;
+            text-transform: capitalize;
+            color: $brand_primary;
+
+        }
+       
+        .list-title {
+            font-size: 1.2em;
+            text-transform: uppercase;
+            color: #9a9a9a;
+        }
+        i {
+            font-size: 3em;
+            color: #9a9a9a;
+        }
+    }
+    .border_top {
+            border-top: 1px solid #D8D8D8;
+        }
+    .border_bottom {
+            border-bottom: 1px solid #D8D8D8;
+        }
+    .main-links {
+        border: 1px solid #D8D8D8;
+        .container {
+        border-left: 1px solid #D8D8D8;
+        border-right: 1px solid #D8D8D8;
+        }
+        .col-3 {
+        border-right: 1px solid #D8D8D8;
+
+        }
+    }
+}
