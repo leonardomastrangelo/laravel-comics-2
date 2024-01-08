@@ -16,7 +16,7 @@
             </div>
 
             <div class="row justify-content-center align-items-start">
-                @foreach ($products as $key=>$product)  
+                @foreach ($comics as $key=>$product)  
                 <div class="col-6 col-md-4 col-xl-2 mb-5">
                     <div class="overflow-hidden">
                         <a href="{{route('comics.show', $key + 1)}}">
