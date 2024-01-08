@@ -9,146 +9,69 @@
         </div>
 
         <section id="comic_info" class="container">
+            <h2 class="text-center display-1 py-4">add a new comic</h2>
             <form action="{{route('comics.store')}}" method="POST">
                 {{-- token --}}
                 @csrf
 
-                <input type="text" id="title" name="title" placeholder="inserisci un titolo" class="form-control">
-                <input type="text" id="description" name="description" placeholder="inserisci una description" class="form-control">
-                <input type="text" id="price" name="price" placeholder="inserisci un price" class="form-control">
-                <input type="text" id="type" name="type" placeholder="inserisci un type" class="form-control">
+                <div class="input-group my-3 d-flex flex-column justify-content-center align-items-center">
+                    <label for="title" class="form-label">
+                        Insert Title
+                    </label>
+                    <input type="text" class="form-control w-50" id="title" name="title" placeholder="Una notte da leoni">
+                </div>
 
-                <button type="submit">invia</button>
+                {{-- <div class="input-group my-4 d-flex flex-column justify-content-center align-items-center">
+                    <label for="thumb" class="form-label">
+                        Insert Image Url
+                    </label>
+                    <input type="text" class="form-control w-50" id="thumb" name="thumb" placeholder="https://picsum.photos/seed/picsum/300/300">
+                </div> --}}
 
+                <div class="input-group my-4 d-flex flex-column justify-content-center align-items-center">
+                    <label for="description" class="form-label">
+                        Insert Description
+                    </label>
+                    <textarea class="w-75" rows="8" id="description" name="description">
+                    </textarea>
+                </div>
+
+                <div class="input-group my-4 d-flex flex-column justify-content-center align-items-center">
+                    <label for="price" class="form-label">
+                        Insert Price
+                    </label>
+                    <input type="text" class="form-control w-25" id="price" name="price" placeholder="$4.99">
+                </div>
+
+                <div class="input-group my-4 d-flex flex-column justify-content-center align-items-center">
+                    <label for="type" class="form-label">
+                        Insert Type
+                    </label>
+                    <input type="text" class="form-control w-25" id="type" name="type" placeholder="Action">
+                </div>
+
+                <div class="input-group my-4 d-flex flex-column justify-content-center align-items-center">
+                    <label for="sale_date" class="form-label">
+                        Insert Date
+                    </label>
+                    <input type="text" class="form-control w-25" id="sale_date" name="sale_date" placeholder="2020-01-07">
+                </div>
+                <div class="input-group my-4 d-flex flex-column justify-content-center align-items-center">
+                    <label for="series" class="form-label">
+                        Insert Series
+                    </label>
+                    <input type="text" class="form-control w-25" id="series" name="series" placeholder="Marvel">
+                </div>
+
+                <div class="text-center py-4">
+                    <button type="submit" class="btn btn-primary">Save</button>
+                    <button type="reset" class="btn btn-secondary">Reset</button>
+                </div>
             </form>
-            {{-- <div class="row justify-content-between">
-                <div class="col-7">
-                    <h2>
-                        {{$comic->title}}
-                    </h2>
-                    <div class="info_badge row">
-                        <div class="col-8 d-flex justify-content-between align-items-center">
-                            <div class="p-3">
-                                <span class="low-color">U.S. Price: </span>
-                                <span class="text-light">{{$comic->price}}</span>
-                            </div>
-                            <div class="text-uppercase low-color p-3">
-                                available
-                            </div>
-                        </div>
-                        <div class="col-4 text-light p-3 text-center">
-                            Check Availability <i class="fa-solid fa-caret-down"></i>
-                        </div>
-                    </div>
-                    <p>
-                        {{ $comic->description}}
-                    </p>
-                </div>
-                <div class="col-4 d-flex align-items-center">
-                    <div class="position-relative">
-                        <h4>advertisement</h4>
-                        <img src="{{Vite::asset('resources/img/adv.jpg')}}" alt="">
-                    </div>
-                </div>
-            </div> --}}
         </section>
 
-        {{-- <section id="specifics">
-            <div class="container pb-5 mb-5">
-                <div class="row justify-content-between">
-                    <div class="col-6">
-                        <h4>Talent</h4>
-                        <div class="row flex-wrap border_top border_bottom py-3">
-                            <div class="col-4 border_bottom">
-                                <h5>Art by:</h5>
-                            </div>
-                            <div class="col-8 border_bottom pb-3">
-                                @foreach ($artby as $person)
-                                    <a href="#">
-                                        {{$person . ', '}}
-                                    </a>
-                                @endforeach
-                            </div>
-                            <div class="col-4 pt-3">
-                                <h5>Written by:</h5>
-                            </div>
-                            <div class="col-8 pt-3">
-                                @foreach ($writtenby as $person)
-                                    <a href="#">
-                                        {{$person . ', '}}
-                                    </a>
-                                @endforeach
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-5">
-                        <h4>Specs</h4>
-                        <div class="row flex-wrap border_bottom border_top">
-                            <div class="col-4 border_bottom py-3">
-                                <h5>Series:</h5>
-                            </div>
-                            <div class="col-8 border_bottom py-3">
-                                <a class="text-uppercase" href="#">action comics</a>
-                            </div>
-                            <div class="col-4 border_bottom py-3">
-                                <h5>U.S. Price:</h5>
-                            </div>
-                            <div class="col-8 border_bottom py-3">
-                                {{$product['price']}}
-                            </div>
-                            <div class="col-4 py-3">
-                                <h5>On Sale Date:</h5>
-                            </div>
-                            <div class="col-8 py-3">
-                                {{$product['sale_date']}}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="main-links">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-3 d-flex justify-content-between alig-items-center py-3">
-                            <div class="list-title">
-                                digital comics
-                            </div>
-                            <div>
-                                <i class="fa-solid fa-mobile"></i>
-                            </div>
-                        </div>
-                        <div class="col-3 d-flex justify-content-between alig-items-center py-3">
-                            <div class="list-title">
-                                shop dc
-                            </div>
-                            <div>
-                               <i class="fa-solid fa-address-card"></i>
-                            </div>
-                        </div>
-                        <div class="col-3 d-flex justify-content-between alig-items-center py-3">
-                            <div class="list-title">
-                                comic shop locator
-                            </div>
-                            <div>
-                                <i class="fa-solid fa-location-dot"></i>
-                            </div>
-                        </div>
-                        <div class="col-3 d-flex justify-content-between alig-items-center py-3">
-                            <div class="list-title">
-                                subscription
-                            </div>
-                            <div>
-                                <i class="fa-solid fa-shirt"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section> --}}
-
-        {{-- <section id="jumbo_2"> --}}
-        {{-- <div class="container">
+        <section id="jumbo_2">
+            <div class="container">
             <div class="row">
                 <div class="col-7 d-flex flex-wrap">
                     @foreach ($jumbo_links as $key=>$link)
@@ -179,7 +102,8 @@
                     </div>
                 </div>
             </div>
-        </div> --}}
+            </div>
+        </section>
     </section>
     </main>
 @endsection

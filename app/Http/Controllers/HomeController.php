@@ -70,9 +70,4 @@ class HomeController extends Controller
         ];
         return view('home', compact('comics', 'options_links', 'jumbo_links'));
     }
-    public function show(Comic $comic)
-    {
-        return view('comics.show', compact('comic'));
-    }
-
 }

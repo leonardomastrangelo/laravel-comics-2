@@ -3,7 +3,7 @@
 @section('title', 'Comics')
 
 @section('content')
-     <section id="current-series" class="py-5">
+    <section id="current-series" class="py-5">
         <div class="container py-5">
             <div id="tag-series">
                 <span>
@@ -37,4 +37,8 @@
 
         </div>
     </section>
+
+    <div class="add">
+        <a href="{{route('comics.create')}}" class="btn text-bg-info">Add a Comic</a>
+    </div>
 @endsection

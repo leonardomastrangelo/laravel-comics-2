@@ -92,5 +92,9 @@
             </div>
         </div>
     </section>
+
+    <div class="add">
+        <a href="{{route('comics.create')}}" class="btn text-bg-info">Add a Comic</a>
+    </div>
 </main>
 @endsection

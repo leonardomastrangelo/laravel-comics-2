@@ -26,7 +26,43 @@ class ComicController extends Controller
     public function create()
     {
         // inserire nuovo fumetto in db
-        return view('comics.create');
+        $jumbo_links = [
+            'dc comics' => [
+                'characters',
+                'comics',
+                'movies',
+                'TV',
+                'games',
+                'videos',
+                'news',
+            ],
+            'dc' => [
+                'terms of use',
+                'privacy policy (new)',
+                'ad choises',
+                'advertising',
+                'jobs',
+                'subscriptions',
+                'talent workshops',
+                'CPSC certificates',
+                'ratings',
+                'shop help',
+                'contact us',
+            ],
+            'sites' => [
+                'DC',
+                'MAD magazine',
+                'DC kids',
+                'DC universe',
+                'DC power visa'
+
+            ],
+            'shop' => [
+                'shop DC',
+                'shop DC collectibles',
+            ],
+        ];
+        return view('comics.create', compact('jumbo_links'));
     }
 
     /**
@@ -40,11 +76,12 @@ class ComicController extends Controller
         $formData = $request->all();
         $newComic = new Comic();
         $newComic->title = $formData['title'];
+        $newComic->thumb = 'https://picsum.photos/seed/picsum/300/300';
         $newComic->description = $formData['description'];
         $newComic->price = $formData['price'];
         $newComic->type = $formData['type'];
-        $newComic->sale_date = '2020-07-01';
-        $newComic->series = 'a piacere';
+        $newComic->sale_date = $formData['sale_date'];
+        $newComic->series = $formData['series'];
         $newComic->save();
         // dd($request->all());
         return to_route('comics.index');
