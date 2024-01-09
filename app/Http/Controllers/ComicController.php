@@ -48,7 +48,7 @@ class ComicController extends Controller
         $newComic->series = $formData['series'];
         $newComic->save();
         // dd($request->all());
-        return to_route('comics.index');
+        return to_route('comics.show', $newComic->id);
     }
 
     /**
@@ -66,11 +66,11 @@ class ComicController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  \App\Models\Comic  $comic
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View;
      */
     public function edit(Comic $comic)
     {
-        //
+        return view('comics.edit', compact('comic'));
     }
 
     /**

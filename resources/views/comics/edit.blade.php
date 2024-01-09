@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', "Comic Create")
+@section('title', "Comic Edit")
 
 @section('content')
     <main class="details">
@@ -9,16 +9,16 @@
         </div>
 
         <section id="comic_info" class="container">
-            <h2 class="text-center display-1 py-4">add a new comic</h2>
-            <form action="{{route('comics.store')}}" method="POST">
+            <h2 class="text-center display-1 py-4">Edit : {{$comic->title}}</h2>
+            <form action="{{route('comics.update', $comic->id)}}" method="POST">
                 {{-- token --}}
                 @csrf
-
+                @method('PUT')
                 <div class="input-group my-3 d-flex flex-column justify-content-center align-items-center">
                     <label for="title" class="form-label">
                         Insert Title
                     </label>
-                    <input type="text" class="form-control w-50" id="title" name="title" placeholder="Una notte da leoni" required>
+                    <input value="{{$comic->title}}" type="text" class="form-control w-50" id="title" name="title" placeholder="Una notte da leoni" required>
                 </div>
 
                 {{-- <div class="input-group my-4 d-flex flex-column justify-content-center align-items-center">

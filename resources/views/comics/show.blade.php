@@ -85,7 +85,7 @@
                                 <h5>Series:</h5>
                             </div>
                             <div class="col-8 border_bottom py-3">
-                                <a class="text-uppercase" href="#">action comics</a>
+                                <a class="text-uppercase" href="#">{{$comic->series}}</a>
                             </div>
                             <div class="col-4 border_bottom py-3">
                                 <h5>U.S. Price:</h5>
@@ -179,5 +179,9 @@
         </div>
         </section>
     </section>
+    
+    <div class="add">
+        <a href="{{route('comics.edit', $comic->id)}}" class="btn text-bg-info">Edit Comic</a>
+    </div>
     </main>
 @endsection
