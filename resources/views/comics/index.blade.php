@@ -13,7 +13,7 @@
 
             <div class="row justify-content-center align-items-start">
                 @foreach ($comics as $product)  
-                <div class="col-6 col-md-4 col-xxl-2 mb-5 my_card">
+                <div class="col-6 col-md-4 col-xxl-2 mb-5 my_card text-center">
                     <div class="overflow-hidden">
                         <img 
                         src="{{$product->thumb}}" 
@@ -28,7 +28,7 @@
                     <p class="py-2">
                         {!!substr($product->description,0,100) . '...'!!}
                     </p>
-                    <a href="{{route('comics.show', $product->id)}}" class="btn btn-primary mt-3">
+                    <a href="{{route('comics.show', $product->id)}}" class="btn btn-primary text-center w-100 mt-3">
                         View Details
                     </a>
                 </div>

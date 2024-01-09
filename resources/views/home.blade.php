@@ -33,7 +33,7 @@
             </div>
 
             <div class="d-flex justify-content-center align-items-center">
-                <a href="{{route('comics.index')}}">
+                <a class="my-anchor" href="{{route('comics.index')}}">
                     load more
                 </a>
             </div>
