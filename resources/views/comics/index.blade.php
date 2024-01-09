@@ -12,7 +12,7 @@
             </div>
 
             @if (session()->has('message'))
-            <div class="alert alert-danger w-100">
+            <div class="alert alert-danger w-100 text-center">
                 {{session('message')}}
             </div>
             @endif
