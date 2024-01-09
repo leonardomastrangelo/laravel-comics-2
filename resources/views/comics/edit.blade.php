@@ -18,7 +18,7 @@
                     <label for="title" class="form-label">
                         Insert Title
                     </label>
-                    <input value="{{$comic->title}}" type="text" class="form-control w-50" id="title" name="title" placeholder="Una notte da leoni" required>
+                    <input value="{{old('title', $comic->title)}}" type="text" class="form-control w-50" id="title" name="title" placeholder="Una notte da leoni" required>
                 </div>
 
                 {{-- <div class="input-group my-4 d-flex flex-column justify-content-center align-items-center">
@@ -32,7 +32,8 @@
                     <label for="description" class="form-label">
                         Insert Description
                     </label>
-                    <textarea class="w-75" rows="8" id="description" name="description" required>
+                    <textarea class="w-75 p-3" rows="8" id="description" name="description" required>
+                        {{old('description', $comic->description)}}
                     </textarea>
                 </div>
 
@@ -40,27 +41,27 @@
                     <label for="price" class="form-label">
                         Insert Price
                     </label>
-                    <input type="text" class="form-control w-25" id="price" name="price" placeholder="$4.99" required>
+                    <input type="text" class="form-control w-25" id="price" name="price" placeholder="$4.99" required value="{{old('price', $comic->price)}}">
                 </div>
 
                 <div class="input-group my-4 d-flex flex-column justify-content-center align-items-center">
                     <label for="type" class="form-label">
                         Insert Type
                     </label>
-                    <input type="text" class="form-control w-25" id="type" name="type" placeholder="Action" required>
+                    <input type="text" class="form-control w-25" id="type" name="type" placeholder="Action" required value="{{old('type', $comic->type)}}" >
                 </div>
 
                 <div class="input-group my-4 d-flex flex-column justify-content-center align-items-center">
                     <label for="sale_date" class="form-label">
                         Insert Date
                     </label>
-                    <input type="text" class="form-control w-25" id="sale_date" name="sale_date" placeholder="2020-01-07">
+                    <input type="text" class="form-control w-25" id="sale_date" name="sale_date" placeholder="2020-01-07" value="{{old('sale_date', $comic->sale_date)}}">
                 </div>
                 <div class="input-group my-4 d-flex flex-column justify-content-center align-items-center">
                     <label for="series" class="form-label">
                         Insert Series
                     </label>
-                    <input type="text" class="form-control w-25" id="series" name="series" placeholder="Marvel" required>
+                    <input type="text" class="form-control w-25" id="series" name="series" placeholder="Marvel" required value="{{old('series', $comic->series)}}" >
                 </div>
 
                 <div class="text-center py-4">

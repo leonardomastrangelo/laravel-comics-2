@@ -40,7 +40,7 @@ class ComicController extends Controller
         $formData = $request->all();
         $newComic = new Comic();
         $newComic->title = $formData['title'];
-        $newComic->thumb = 'https://picsum.photos/seed/picsum/300/300';
+        $newComic->thumb = 'https://picsum.photos/300/300';
         $newComic->description = $formData['description'];
         $newComic->price = $formData['price'];
         $newComic->type = $formData['type'];
@@ -78,11 +78,22 @@ class ComicController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Comic  $comic
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View;
      */
     public function update(Request $request, Comic $comic)
     {
-        //
+        $formData = $request->all();
+        $comic->title = $formData['title'];
+        $comic->thumb = 'https://picsum.photos/300/300';
+        $comic->description = $formData['description'];
+        $comic->price = $formData['price'];
+        $comic->type = $formData['type'];
+        $comic->sale_date = $formData['sale_date'];
+        $comic->series = $formData['series'];
+        $comic->update();
+        // dd($request->all());
+        return to_route('comics.show', $comic->id);
+
     }
 
     /**
@@ -93,6 +104,6 @@ class ComicController extends Controller
      */
     public function destroy(Comic $comic)
     {
-        //
+        // $comic->delete();
     }
 }
