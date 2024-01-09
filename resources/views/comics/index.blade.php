@@ -11,6 +11,12 @@
                 </span>
             </div>
 
+            @if (session()->has('message'))
+            <div class="alert alert-danger w-100">
+                {{session('message')}}
+            </div>
+            @endif
+
             <div class="row justify-content-center align-items-start">
                 @foreach ($comics as $product)  
                 <div class="col-6 col-md-4 col-xxl-2 mb-5 my_card text-center">
