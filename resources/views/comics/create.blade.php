@@ -10,6 +10,17 @@
 
         <section id="comic_info" class="container">
             <h2 class="text-center display-1 py-4">add a new comic</h2>
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach($errors->all() as $error)
+                        <li>
+                            {{$error}}
+                        </li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
             <form action="{{route('comics.store')}}" method="POST">
                 {{-- token --}}
                 @csrf
@@ -18,7 +29,12 @@
                     <label for="title" class="form-label">
                         Insert Title
                     </label>
-                    <input type="text" class="form-control w-50" id="title" name="title" placeholder="Una notte da leoni" required>
+                    <input type="text" class="form-control w-50 @error('title') is-invalid @enderror" id="title" name="title" placeholder="Una notte da leoni" required value="{{old('title')}}">
+                    @error('title')
+                    <div class="invalid-feedback text-center">
+                        {{$message}}
+                    </div>
+                    @enderror
                 </div>
 
                 {{-- <div class="input-group my-4 d-flex flex-column justify-content-center align-items-center">
