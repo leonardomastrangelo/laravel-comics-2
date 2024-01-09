@@ -9,7 +9,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $comics = Comic::all();
+        $comics = Comic::inRandomOrder()->limit(6)->get();
         $options_links = [
             [
                 'image' => 'buy-comics-digital-comics.png',

@@ -33,9 +33,9 @@
             </div>
 
             <div class="d-flex justify-content-center align-items-center">
-                <button>
+                <a href="{{route('comics.index')}}">
                     load more
-                </button>
+                </a>
             </div>
         </div>
     </section>

@@ -99,8 +99,9 @@ nav {
         height: 200px;
         width: 100%;
     }
-    button {
+    a {
         text-transform: uppercase;
+        text-decoration: none;
         color: $text_color_primary;
         background-color: $brand_primary;
         padding: 10px 70px;
@@ -111,9 +112,13 @@ nav {
     p {
         color: rgb(99, 92, 92);
         margin: 0;
+        height: 140px;
     }
     div span {
         color: rgba(245, 245, 220, 0.685);
+    }
+    .my_card {
+        height: 500px;
     }
 }
 
