@@ -69,6 +69,11 @@
                     <button type="reset" class="btn btn-secondary">Reset</button>
                 </div>
             </form>
+            <form class="d-flex justify-content-center" action="{{route('comics.destroy', $comic->id)}}" method="POST">
+                @csrf
+                @method('DELETE')
+                <button class="btn btn-danger text-center p-4 fs-4" type="submit">Remove</button>
+            </form>
         </section>
 
         <section id="jumbo_2">

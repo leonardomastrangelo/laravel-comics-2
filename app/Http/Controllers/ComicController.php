@@ -78,7 +78,7 @@ class ComicController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Comic  $comic
-     * @return \Illuminate\View\View;
+     * 
      */
     public function update(Request $request, Comic $comic)
     {
@@ -100,10 +100,11 @@ class ComicController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  \App\Models\Comic  $comic
-     * @return \Illuminate\Http\Response
+     * 
      */
     public function destroy(Comic $comic)
     {
-        // $comic->delete();
+        $comic->delete();
+        return to_route('comics.index');
     }
 }
