@@ -74,7 +74,7 @@
             <div class="container">
             <div class="row">
                 <div class="col-7 d-flex flex-wrap">
-                    @foreach ($jumbo_links as $key=>$link)
+                    @foreach (config('comics.jumbo_links') as $key=>$link)
                     <div class="col-4 mb-3">
                         <h3>
                             {{$key}}

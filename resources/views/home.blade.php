@@ -43,7 +43,7 @@
     <section id="options">
         <div class="container">
             <div class="row justify-content-around align-items-center">
-                @foreach ($options_links as $link)
+                @foreach (config('comics.options_links') as $link)
                 <div class="col-2 d-flex justify-content-center align-items-center">
                     <img 
                     src="/img/{{$link['image']}}" 
@@ -62,7 +62,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-7 d-flex flex-wrap">
-                    @foreach ($jumbo_links as $key=>$link)
+                    @foreach (config('comics.jumbo_links') as $key=>$link)
                     <div class="col-4 mb-3">
                         <h3>
                             {{$key}}

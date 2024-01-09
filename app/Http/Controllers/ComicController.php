@@ -26,43 +26,7 @@ class ComicController extends Controller
     public function create()
     {
         // inserire nuovo fumetto in db
-        $jumbo_links = [
-            'dc comics' => [
-                'characters',
-                'comics',
-                'movies',
-                'TV',
-                'games',
-                'videos',
-                'news',
-            ],
-            'dc' => [
-                'terms of use',
-                'privacy policy (new)',
-                'ad choises',
-                'advertising',
-                'jobs',
-                'subscriptions',
-                'talent workshops',
-                'CPSC certificates',
-                'ratings',
-                'shop help',
-                'contact us',
-            ],
-            'sites' => [
-                'DC',
-                'MAD magazine',
-                'DC kids',
-                'DC universe',
-                'DC power visa'
-
-            ],
-            'shop' => [
-                'shop DC',
-                'shop DC collectibles',
-            ],
-        ];
-        return view('comics.create', compact('jumbo_links'));
+        return view('comics.create');
     }
 
     /**

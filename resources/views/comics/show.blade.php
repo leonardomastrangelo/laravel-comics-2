@@ -1,69 +1,3 @@
-@php
-    $artby = [
-            'jose luis garcia lopez',
-            'clay mann',
-            'rafael albuquerque',
-            'patrick gleason',
-            'dan jurgens',
-            'joe shuster',
-            'nral adams',
-            'curts swan',
-            'john cassady',
-            'oliver coipel',
-            'jim lee'
-        ];
-        $writtenby = [
-            'brad metzler',
-            'tom king',
-            'scott snyder',
-            'geoff johns',
-            'bryan michael bendis',
-            'paul dini',
-            'louise simson',
-            'richard donner',
-            'marv wolfman',
-            'peter j. tomasi',
-            'dan jurgens',
-            'jerry siegel',
-            'paul levitz'
-        ];
-        $jumbo_links = [
-            'dc comics' => [
-                'characters',
-                'comics',
-                'movies',
-                'TV',
-                'games',
-                'videos',
-                'news',
-            ],
-            'dc' => [
-                'terms of use',
-                'privacy policy (new)',
-                'ad choises',
-                'advertising',
-                'jobs',
-                'subscriptions',
-                'talent workshops',
-                'CPSC certificates',
-                'ratings',
-                'shop help',
-                'contact us',
-            ],
-            'sites' => [
-                'DC',
-                'MAD magazine',
-                'DC kids',
-                'DC universe',
-                'DC power visa'
-
-            ],
-            'shop' => [
-                'shop DC',
-                'shop DC collectibles',
-            ],
-        ];
-@endphp
 @extends('layouts.app')
 
 @section('title', "Product Details")
@@ -126,7 +60,7 @@
                                 <h5>Art by:</h5>
                             </div>
                             <div class="col-8 border_bottom pb-3">
-                                @foreach ($artby as $person)
+                                @foreach (config('comics.artby') as $person)
                                     <a href="#">
                                         {{$person . ', '}}
                                     </a>
@@ -136,7 +70,7 @@
                                 <h5>Written by:</h5>
                             </div>
                             <div class="col-8 pt-3">
-                                @foreach ($writtenby as $person)
+                                @foreach (config('comics.writtenby') as $person)
                                     <a href="#">
                                         {{$person . ', '}}
                                     </a>
@@ -214,7 +148,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-7 d-flex flex-wrap">
-                    @foreach ($jumbo_links as $key=>$link)
+                    @foreach (config('comics.jumbo_links') as $key=>$link)
                     <div class="col-4 mb-3">
                         <h3>
                             {{$key}}
