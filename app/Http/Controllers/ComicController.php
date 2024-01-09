@@ -41,11 +41,12 @@ class ComicController extends Controller
             'title' => 'required|min:2|max:100',
             'description' => 'required',
             'price' => 'required|min:5|max:20',
-            'sale_date' => 'required|min:10|max:10',
+            'sale_date' => 'required|date_format:Y-m-d',
             'series' => 'required|min:3|max:30',
             'type' => 'required|min:3|max:30',
         ]);
         $formData = $request->all();
+
         /**
          * METODO FAST
          */

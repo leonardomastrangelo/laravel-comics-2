@@ -49,6 +49,7 @@
                         Insert Description
                     </label>
                     <textarea class="w-75" rows="8" id="description" name="description" required>
+                        {{old('description')}}
                     </textarea>
                 </div>
 
@@ -56,27 +57,47 @@
                     <label for="price" class="form-label">
                         Insert Price
                     </label>
-                    <input type="text" class="form-control w-25" id="price" name="price" placeholder="$4.99" required>
+                    <input type="text" class="form-control w-25 @error('price') is-invalid @enderror" id="price" name="price" placeholder="$4.99" required value="{{old('price')}}">
+                    @error('price')
+                    <div class="invalid-feedback text-center">
+                        {{$message}}
+                    </div>
+                    @enderror
                 </div>
 
                 <div class="input-group my-4 d-flex flex-column justify-content-center align-items-center">
                     <label for="type" class="form-label">
                         Insert Type
                     </label>
-                    <input type="text" class="form-control w-25" id="type" name="type" placeholder="Action" required>
+                    <input type="text" class="form-control w-25 @error('type') is-invalid @enderror" id="type" name="type" placeholder="Action" required value="{{old('type')}}">
+                    @error('type')
+                    <div class="invalid-feedback text-center">
+                        {{$message}}
+                    </div>
+                    @enderror
                 </div>
 
                 <div class="input-group my-4 d-flex flex-column justify-content-center align-items-center">
                     <label for="sale_date" class="form-label">
                         Insert Date
                     </label>
-                    <input type="text" class="form-control w-25" id="sale_date" name="sale_date" placeholder="2020-01-07">
+                    <input type="text" class="form-control w-25 @error('sale_date') is-invalid @enderror" id="sale_date" name="sale_date" placeholder="2020-01-07" value="{{old('sale_date')}}">
+                    @error('sale_date')
+                    <div class="invalid-feedback text-center">
+                        The date fotmat must be: Y-m-d
+                    </div>
+                    @enderror
                 </div>
                 <div class="input-group my-4 d-flex flex-column justify-content-center align-items-center">
                     <label for="series" class="form-label">
                         Insert Series
                     </label>
-                    <input type="text" class="form-control w-25" id="series" name="series" placeholder="Marvel" required>
+                    <input type="text" class="form-control w-25 @error('series') is-invalid @enderror" id="series" name="series" placeholder="Marvel" required value="{{old('series')}}">
+                    @error('series')
+                    <div class="invalid-feedback text-center">
+                        {{$message}}
+                    </div>
+                    @enderror
                 </div>
 
                 <div class="text-center py-4">
