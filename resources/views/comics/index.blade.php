@@ -17,20 +17,29 @@
             </div>
             @endif
 
-            <form action="{{route('comics.index')}}" method="GET" class="d-flex align-items-end">
-                <div class="w-25">
+            <form action="{{route('comics.index')}}" method="GET" class="d-flex align-items-end mb-5">
+                <div class="w-25 me-3">
                     <label for="type" class="form-label text-white">
-                        Search for Type :
+                        Search for Type : 
                     </label>
-                    <select class="form-select" name="search" id="search">
-                        <option value="all" {{ old('search') == 'all' ? 'selected' : '' }}>All</option>
-                        <option value="comic book" {{ old('search') == 'comic book' ? 'selected' : '' }}>Comic Book</option>
-                        <option value="graphic novel" {{ old('search') == 'graphic novel' ? 'selected' : '' }}>Graphic Novel</option>
+
+                    <select class="form-select" name="typology" id="typology">
+                        <option value="all" {{ $typology == 'all' ? 'selected' : '' }}>All</option>
+                        <option value="comic book" {{ $typology == 'comic book' ? 'selected' : '' }}>Comic Book</option>
+                        <option value="graphic novel" {{ $typology == 'graphic novel' ? 'selected' : '' }}>Graphic Novel</option>
                     </select>
                 </div>
 
                 <div>
-                    <button type="submit" class="btn btn-primary">
+                    <label for="type" class="form-label text-white">
+                        Search for Title : 
+                    </label>
+
+                    <input class="form-control" type="text" id="comic_title" name="comic_title">
+                </div>
+
+                <div>
+                    <button type="submit" class="btn btn-primary ms-3">
                         Search
                     </button>
                 </div>

@@ -17,17 +17,30 @@ class ComicController extends Controller
      */
     public function index(Request $request)
     {
-        if (!empty($request->query('search'))) {
-            $search = $request->query('search');
-            if ($search == 'all') {
+        $typology = $request->query('typology');
+        $comicTitle = $request->query('comic_title');
+
+        if (!empty($typology) || !empty($comicTitle)) {
+            if ($typology == 'all' && $comicTitle == '') {
                 $comics = Comic::all();
             } else {
-                $comics = Comic::where('type', $search)->get();
+                $query = Comic::query();
+
+                if ($typology != 'all') {
+                    $query->where('type', $typology);
+                }
+
+                if (!empty($comicTitle)) {
+                    $query->where('title', 'like', '%' . $comicTitle . '%');
+                }
+
+                $comics = $query->get();
             }
         } else {
             $comics = Comic::all();
         }
-        return view('comics.index', compact('comics'));
+
+        return view('comics.index', compact('comics', 'typology', 'comicTitle'));
     }
 
     /**
