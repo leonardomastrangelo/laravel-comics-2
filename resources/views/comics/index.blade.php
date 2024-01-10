@@ -35,7 +35,7 @@
                         Search for Title : 
                     </label>
 
-                    <input class="form-control" type="text" id="comic_title" name="comic_title">
+                    <input class="form-control" type="text" id="comic_title" name="comic_title" value="{{$comicTitle}}">
                 </div>
 
                 <div>
