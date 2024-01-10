@@ -26,11 +26,12 @@ class StoreComicRequest extends FormRequest
     {
         return [
             'title' => 'required|min:2|max:100',
+            'thumb' => 'required|url',
             'description' => 'required',
             'price' => 'required|min:5|max:20',
+            'type' => 'required',
             'sale_date' => 'required|date_format:Y-m-d',
             'series' => 'required|min:3|max:30',
-            'type' => 'required|min:3|max:30',
         ];
     }
     /**
@@ -40,17 +41,19 @@ class StoreComicRequest extends FormRequest
     public function messages()
     {
         return [
-            'title.required' => 'Il campo title è obbligatorio',
-            'title.min' => 'Il campo title deve avere :min caratteri',
-            'title.max' => 'Il campo title deve avere :max caratteri',
-            'description.required' => 'Il campo description è obbligatorio',
-            'price.required' => 'Il campo price è obbligatorio',
-            'price.min' => 'Il campo price deve avere :min caratteri',
-            'price.max' => 'Il campo price deve avere :max caratteri',
-            'sale_date.required' => 'Il campo price è obbligatorio',
-            'sale_date.date_format' => 'Il campo sale_date non segue la formattazione :date_format',
-
-            // continua
+            'title.required' => 'Field ":attribute" is required',
+            'title.min' => 'Field ":attribute" must have at least :min chars',
+            'title.max' => 'Field ":attribute" must have at least :max chars',
+            'description.required' => 'Field ":attribute" is required',
+            'price.required' => 'Field ":attribute" is required',
+            'price.min' => 'Field ":attribute" must have at least :min chars',
+            'price.max' => 'Field ":attribute" must have at least :max chars',
+            'type.required' => 'Field ":attribute" is required',
+            'sale_date.required' => 'Field ":attribute" is required',
+            'sale_date.date_format' => 'Field ":attribute" does not match : :format',
+            'series.required' => 'Field ":attribute" is required',
+            'series.min' => 'Field ":attribute" must have at least :min chars',
+            'series.max' => 'Field ":attribute" must have at least :max chars',
         ];
     }
 }

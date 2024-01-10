@@ -37,20 +37,30 @@
                     @enderror
                 </div>
 
-                {{-- <div class="input-group my-4 d-flex flex-column justify-content-center align-items-center">
+                <div class="input-group my-4 d-flex flex-column justify-content-center align-items-center">
                     <label for="thumb" class="form-label">
                         Insert Image Url
                     </label>
-                    <input type="text" class="form-control w-50" id="thumb" name="thumb" placeholder="https://picsum.photos/seed/picsum/300/300">
-                </div> --}}
+                    <input type="text" class="form-control w-50" id="thumb" name="thumb" value="https://picsum.photos/seed/picsum/300/300 @error('thumb') is-invalid @enderror">
+                    @error('thumb')
+                    <div class="invalid-feedback text-center">
+                        {{$message}}
+                    </div>
+                    @enderror
+                </div>
 
                 <div class="input-group my-4 d-flex flex-column justify-content-center align-items-center">
                     <label for="description" class="form-label">
                         Insert Description
                     </label>
-                    <textarea class="w-75" rows="8" id="description" name="description" required>
+                    <textarea class="w-75 @error('description') is-invalid @enderror" rows="8" id="description" name="description" required>
                         {{old('description')}}
                     </textarea>
+                    @error('description')
+                    <div class="invalid-feedback text-center">
+                        {{$message}}
+                    </div>
+                    @enderror
                 </div>
 
                 <div class="input-group my-4 d-flex flex-column justify-content-center align-items-center">
@@ -69,7 +79,10 @@
                     <label for="type" class="form-label">
                         Insert Type
                     </label>
-                    <input type="text" class="form-control w-25 @error('type') is-invalid @enderror" id="type" name="type" placeholder="Action" required value="{{old('type')}}">
+                    <select name="type" id="type" class="form-select w-25">
+                         <option {{(old('type') == 'comic book') ? 'selected' : ''}} value="comic book">Comic Book</option>
+                        <option {{(old('type') == 'graphic novel') ? 'selected' : ''}} value="graphic novel">Graphic Novel</option>
+                    </select>
                     @error('type')
                     <div class="invalid-feedback text-center">
                         {{$message}}
@@ -84,7 +97,7 @@
                     <input type="text" class="form-control w-25 @error('sale_date') is-invalid @enderror" id="sale_date" name="sale_date" placeholder="2020-01-07" value="{{old('sale_date')}}">
                     @error('sale_date')
                     <div class="invalid-feedback text-center">
-                        The date fotmat must be: Y-m-d
+                        {{$message}}
                     </div>
                     @enderror
                 </div>
