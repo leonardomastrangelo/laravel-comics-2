@@ -117,6 +117,9 @@
                     <button type="submit" class="btn btn-primary">Save</button>
                     <button type="reset" class="btn btn-secondary">Reset</button>
                 </div>
+
+                @include('partials.modal_delete')
+
             </form>
             <form class="d-flex justify-content-center" action="{{route('comics.destroy', $comic->id)}}" method="POST">
                 @csrf
@@ -161,5 +164,4 @@
         </section>
     </section>
     </main>
-@include('partials.modal_delete')
 @endsection

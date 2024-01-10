@@ -25,7 +25,7 @@ btn.addEventListener("click", (e) => {
     title.textContent = dataTitle;
 
     // take from modal the final delete btn
-    const btnDelete = modal.getElementById("modal_delete_btn");
+    const btnDelete = document.getElementById("modal_delete_btn");
 
     // send the actual form
     btnDelete.addEventListener("click", (e) => {
