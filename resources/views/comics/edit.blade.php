@@ -108,7 +108,7 @@
             <form class="d-flex justify-content-center" action="{{route('comics.destroy', $comic->id)}}" method="POST">
                 @csrf
                 @method('DELETE')
-                <button class="btn btn-danger text-center p-4 fs-4" type="submit">Remove</button>
+                <button class="btn btn-danger text-center p-4 fs-4" type="submit" data-item-title="{{$comic->title}}">Remove</button>
             </form>
         </section>
 
@@ -148,4 +148,5 @@
         </section>
     </section>
     </main>
+@include('partials.modal_delete')
 @endsection

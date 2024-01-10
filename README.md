@@ -80,7 +80,11 @@ Route::get('/books', [BookController::class, 'index'])->name('books.index');
 # creo controller
 php artisan make:controller NomeController --resource
 
-#creo model
+# creo model/ResourceController/migration/seeder && Store|UpdateModelRequest
 php artisan make:model Nome -rcms
+php artisan make:model Nome -rcms --request
 
 # creo le views relative
+
+# creo form request validation
+php artisan make:request StoreModelRequest

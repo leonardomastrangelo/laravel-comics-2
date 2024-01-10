@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Comic;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use App\Http\Requests\StoreComicRequest;
+use App\Http\Requests\UpdateComicRequest;
 
 class ComicController extends Controller
 {
@@ -35,8 +38,9 @@ class ComicController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * 
      */
-    public function store(Request $request)
+    public function store(StoreComicRequest $request)
     {
+        //! potrai cancellare $request e $formData = $request->all();
         $request->validate([
             'title' => 'required|min:2|max:100',
             'description' => 'required',
@@ -46,6 +50,10 @@ class ComicController extends Controller
             'type' => 'required|min:3|max:30',
         ]);
         $formData = $request->all();
+
+        //? $formData = $this->validation($request->all());
+
+        //* $formData = $request->validated()
 
         /**
          * METODO FAST
@@ -94,8 +102,9 @@ class ComicController extends Controller
      * @param  \App\Models\Comic  $comic
      * 
      */
-    public function update(Request $request, Comic $comic)
+    public function update(UpdateComicRequest $request, Comic $comic)
     {
+        //! potrai cancellare $request e $formData = $request->all();
         $request->validate([
             'title' => 'required|min:2|max:100',
             'description' => 'required',
@@ -105,11 +114,14 @@ class ComicController extends Controller
             'type' => 'required|min:3|max:30',
         ]);
         $formData = $request->all();
+
+        //? $formData = $this->validation($request->all());
+
+        //* THIS!!! $formData = $request->validated()
+
         $comic->thumb = 'https://picsum.photos/300/300';
         $comic->fill($formData);
         $comic->update();
-
-        // dd($request->all());
         return to_route('comics.show', $comic->id);
 
     }
@@ -125,4 +137,39 @@ class ComicController extends Controller
         $comic->delete();
         return to_route('comics.index')->with('message', "Il prodotto : '$comic->title' è stato eliminato");
     }
+
+    //! metodo meno efficace perchè sporca il controller
+    /**
+     * Validate received data and make customized error messages
+     * @return $validator
+     */
+    // private function validation($data)
+    // {
+    //     $validator = Validator::make(
+    //         $data,
+    //         [
+    //             'title' => 'required|min:2|max:100',
+    //             'description' => 'required',
+    //             'price' => 'required|min:5|max:20',
+    //             'sale_date' => 'required|date_format:Y-m-d',
+    //             'series' => 'required|min:3|max:30',
+    //             'type' => 'required|min:3|max:30',
+    //         ],
+    //         [
+    //             'title.required' => 'Il campo title è obbligatorio',
+    //             'title.min' => 'Il campo title deve avere :min caratteri',
+    //             'title.max' => 'Il campo title deve avere :max caratteri',
+    //             'description.required' => 'Il campo description è obbligatorio',
+    //             'price.required' => 'Il campo price è obbligatorio',
+    //             'price.min' => 'Il campo price deve avere :min caratteri',
+    //             'price.max' => 'Il campo price deve avere :max caratteri',
+    //             'sale_date.required' => 'Il campo price è obbligatorio',
+    //             'sale_date.date_format' => 'Il campo sale_date non segue la formattazione :date_format',
+
+    //             // continua
+    //         ]
+    //     )->validate();
+
+    //     return $validator;
+    // }
 }
