@@ -29,7 +29,7 @@
                     <label for="title" class="form-label">
                         Insert Title
                     </label>
-                    <input type="text" class="form-control w-50 @error('title') is-invalid @enderror" id="title" name="title" placeholder="Una notte da leoni" required value="{{old('title')}}">
+                    <input type="text" class="form-control w-50 @error('title') is-invalid @enderror" id="title" name="title" placeholder="Una notte da leoni" required min="2" max="100" value="{{old('title')}}">
                     @error('title')
                     <div class="invalid-feedback text-center">
                         {{$message}}
@@ -41,7 +41,7 @@
                     <label for="thumb" class="form-label">
                         Insert Image Url
                     </label>
-                    <input type="text" class="form-control w-50" id="thumb" name="thumb" value="https://picsum.photos/seed/picsum/300/300 @error('thumb') is-invalid @enderror">
+                    <input type="text" class="form-control w-50 @error('thumb') is-invalid @enderror" id="thumb" name="thumb" required value="https://picsum.photos/seed/picsum/300/300">
                     @error('thumb')
                     <div class="invalid-feedback text-center">
                         {{$message}}
@@ -67,7 +67,7 @@
                     <label for="price" class="form-label">
                         Insert Price
                     </label>
-                    <input type="text" class="form-control w-25 @error('price') is-invalid @enderror" id="price" name="price" placeholder="$4.99" required value="{{old('price')}}">
+                    <input type="text" class="form-control w-25 @error('price') is-invalid @enderror" id="price" name="price" placeholder="$4.99" required min="5" max="20" value="{{old('price')}}">
                     @error('price')
                     <div class="invalid-feedback text-center">
                         {{$message}}
@@ -79,7 +79,7 @@
                     <label for="type" class="form-label">
                         Insert Type
                     </label>
-                    <select name="type" id="type" class="form-select w-25">
+                    <select required name="type" id="type" class="form-select w-25">
                          <option {{(old('type') == 'comic book') ? 'selected' : ''}} value="comic book">Comic Book</option>
                         <option {{(old('type') == 'graphic novel') ? 'selected' : ''}} value="graphic novel">Graphic Novel</option>
                     </select>
@@ -94,7 +94,7 @@
                     <label for="sale_date" class="form-label">
                         Insert Date
                     </label>
-                    <input type="text" class="form-control w-25 @error('sale_date') is-invalid @enderror" id="sale_date" name="sale_date" placeholder="2020-01-07" value="{{old('sale_date')}}">
+                    <input type="text" class="form-control w-25 @error('sale_date') is-invalid @enderror" id="sale_date" name="sale_date" placeholder="2020-01-07" required value="{{old('sale_date')}}">
                     @error('sale_date')
                     <div class="invalid-feedback text-center">
                         {{$message}}
@@ -105,7 +105,7 @@
                     <label for="series" class="form-label">
                         Insert Series
                     </label>
-                    <input type="text" class="form-control w-25 @error('series') is-invalid @enderror" id="series" name="series" placeholder="Marvel" required value="{{old('series')}}">
+                    <input type="text" class="form-control w-25 @error('series') is-invalid @enderror" id="series" name="series" placeholder="Marvel" required min="3" max="30" value="{{old('series')}}">
                     @error('series')
                     <div class="invalid-feedback text-center">
                         {{$message}}
