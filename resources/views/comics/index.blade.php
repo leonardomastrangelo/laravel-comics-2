@@ -17,6 +17,25 @@
             </div>
             @endif
 
+            <form action="{{route('comics.index')}}" method="GET" class="d-flex align-items-end">
+                <div class="w-25">
+                    <label for="type" class="form-label text-white">
+                        Search for Type :
+                    </label>
+                    <select class="form-select" name="search" id="search">
+                        <option value="all" {{ old('search') == 'all' ? 'selected' : '' }}>All</option>
+                        <option value="comic book" {{ old('search') == 'comic book' ? 'selected' : '' }}>Comic Book</option>
+                        <option value="graphic novel" {{ old('search') == 'graphic novel' ? 'selected' : '' }}>Graphic Novel</option>
+                    </select>
+                </div>
+
+                <div>
+                    <button type="submit" class="btn btn-primary">
+                        Search
+                    </button>
+                </div>
+            </form>
+
             <div class="row justify-content-center align-items-start">
                 @foreach ($comics as $product)  
                 <div class="col-6 col-md-4 col-xxl-2 mb-5 my_card text-center">
